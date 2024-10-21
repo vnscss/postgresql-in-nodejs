@@ -1,10 +1,3 @@
--- Remover o banco de dados existente (se necessário)
-DROP DATABASE IF EXISTS informatica;
-
--- Criar um novo banco de dados
-CREATE DATABASE informatica;
-
--- Conectar-se ao banco de dados criado
 \c informatica;
 
 -- Criar tabela 'users'
