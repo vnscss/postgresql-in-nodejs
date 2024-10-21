@@ -4,71 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    hello word
-    <form action="/sql" method="get" id="form">
-        <label for="query">query SQL:</label>
-        <input type="text" id="query" name="query" required>
+    <div class="main">
+            <h1><span class="spanPostgre">PostgreSQL</span> usando <span class="spanNode">node</span>JS</h1>
 
-        <input type="submit" value="Enviar">
-    </form>
-    <p id="data"></p>
+            <form action="" method="get" id="form">
+                <input class="text" placeholder="Query SQL" type="text" id="query" name="query" required>
+
+                <input class="button" type="submit" value="📩">
+            </form>
+        
+        <div class="suggestion">
+            <button onclick="users();">SELECT * FROM users;</button>
+            <button onclick="equipamento();">SELECT * FROM equipamento;</button>
+        </div>
+
+    </div>
+
     <script>
             document.getElementById('form').addEventListener('submit', function(event) {
                 event.preventDefault(); 
-                console.log("rw")
-
-                async function create(){
-
-                let objt = {
-                    query : document.getElementById("query").value
-                }
-
-                let postMetodo = {
-                    method: 'POST',
-                    headers:{
-                        'Content-Type': 'application/json'
-                    },
-                    body:JSON.stringify(objt)
-                }
-
-                const endpoint = '<%= baseURL %>/sql'
-                const resposta = await fetch(endpoint, postMetodo)
-                console.log(resposta)
-                document.getElementById("data").innerHTML = resposta
-                }
-                create()
+                window.open(`<%= baseURL%>/${document.getElementById("query").value}`, '_blank');
             });
-                
-                /* 
-                const formData = {
-                    querry: document.getElementById("querry").value
-                };
 
-                fetch('<%= baseURL %>/sql', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                })
-                .then(response => {
-                    if (response.ok) {
-                        document.getElementById("data").innerHTML = response.json.stringify;
-                        return response.json();
-                    }
-                    throw new Error('Erro na requisição: ' + response.status);
-                })
-                .then(data => {
-                    console.log('Sucesso:', data);
-                    alert('Formulário enviado com sucesso!');
-                })
-                .catch((error) => {
-                    console.error('Erro:', error);
-                    alert('Ocorreu um erro ao enviar o formulário.');
-                });
-            });*/
+            function users(){
+                window.open(`<%= baseURL%>/get-users`, '_blank');
+            }
+
+            function equipamento(){
+                window.open(`<%= baseURL%>/get-equipamento`, '_blank');
+            }
     </script>
 </body>
 </html>
