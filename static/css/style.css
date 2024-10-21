@@ -52,6 +52,7 @@ textarea:focus, input:focus{
 }
 
 input.button{
+    cursor: pointer;
     width: 30%;
     border-radius: 50px;
     border: none;
@@ -65,8 +66,26 @@ input.button{
 }
 
 .suggestion button{
+    cursor: pointer;
     margin: 2%;
-    height: 25px;
+    height: 30px;
+    border-radius: 4px;
+    border: none;
+    background-color: #2f2f2f;
+    color: white;
+}
+
+.diagrama{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    cursor: pointer;
+    margin: 2%;
+    height: 50px;
+    font-size: 100%;
     border-radius: 4px;
     border: none;
     background-color: #2f2f2f;

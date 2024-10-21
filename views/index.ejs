@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PostgreSQL com Node</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -21,6 +21,9 @@
             <button onclick="equipamento();">SELECT * FROM equipamento;</button>
         </div>
 
+        <div class="diagrama">
+            <button onclick="diagrama();" >Diagrama Entidade-Relacionamento</button>
+        </div>
     </div>
 
     <script>
@@ -35,6 +38,10 @@
 
             function equipamento(){
                 window.open(`<%= baseURL%>/get-equipamento`, '_blank');
+            }
+
+            function diagrama(){
+                window.open(`<%= baseURL%>/assets/schema.jpg`, '_blank');
             }
     </script>
 </body>
